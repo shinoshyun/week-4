@@ -1,0 +1,32 @@
+.title {
+    padding: 0.5em;
+    text-align: center;
+    color: #fff;
+    background-color: #223344;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.login-system h2 {
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 1%;
+}
+
+.login-system {
+    text-align: center;
+    margin-top: 3em;
+}
+
+.username,
+.password {
+    margin-bottom: 0.5em;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.username h3,
+.password h3 {
+    padding-right: 5px;
+}
