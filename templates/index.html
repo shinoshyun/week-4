@@ -15,15 +15,15 @@
     <h1 class=" title">歡迎光臨，請輸入帳號密碼</h1>
     <div class="login-system">
         <h2>登入系統</h2>
-        <form action="/member">
 
+        <form action="/signin" method="POST">
             <div class="username">
                 <h3>帳號</h3>
-                <input type="text" account="account" value="test" />
+                <input type="text" name="account" value="test" />
             </div>
             <div class="password">
                 <h3>密碼</h3>
-                <input type="password" password="password" value="test" />
+                <input type="password" name="password" value="test" />
             </div>
             <button>登入</button>
         </form>
