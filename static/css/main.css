@@ -7,26 +7,34 @@
     font-weight: bold;
 }
 
-.login-system h2 {
+.login-system h2,
+.calculate h2 {
     font-size: 25px;
     font-weight: bold;
     margin-bottom: 1%;
 }
 
-.login-system {
+.login-system,
+.calculate {
     text-align: center;
     margin-top: 3em;
 }
 
 .username,
-.password {
+.password,
+.number {
     margin-bottom: 0.5em;
-    font-size: 20px;
     display: flex;
     justify-content: center;
 }
 
 .username h3,
-.password h3 {
+.password h3,
+.calculate h3 {
     padding-right: 5px;
+    font-size: 20px;
+}
+
+hr {
+    margin-top: 3.5em;
 }
