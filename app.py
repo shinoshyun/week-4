@@ -41,14 +41,10 @@ def signout():
 
 
 # -----------------------------------------------------
+
+
 @app.route("/square")
 def square():
-
-    return render_template("result.html")
-
-
-@app.route("/calculate")
-def calculate():
     n = request.args.get("number")
     n = int(n)
 
@@ -56,8 +52,7 @@ def calculate():
     sum = n ** 2
     result += sum
 
-    print(result)
-    return redirect("/square")
+    return render_template("result.html", sum=result)
 
 
 app.run(port=3000)
