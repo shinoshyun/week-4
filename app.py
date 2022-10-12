@@ -39,10 +39,11 @@ def signin():
 
     elif (account == "") or (password == ""):
 
-        return redirect("/error?message=請輸入帳號、密碼")  # 錯的話就導去(路由/error)
+        # 錯的話就導去(路由/error)先預設message後面的文字
+        return redirect("/error?message=請輸入帳號、密碼")
 
     else:
-        return redirect("/error")
+        return redirect("/error")  # 錯的話就導去(路由/error)
 
 
 @app.route("/signout")
