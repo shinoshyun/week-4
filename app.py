@@ -1,3 +1,4 @@
+from email import message
 import numbers
 from unittest import result
 from flask import Flask, request, render_template, session, redirect
@@ -21,18 +22,24 @@ def member():
 
 @app.route("/error")
 def error():
-    return render_template("error.html")
+    message = request.args.get("message", "帳號、或密碼輸入錯誤")
+    return render_template("error.html", message=message)
 
 
 @app.route("/signin", methods=["POST"])
 def signin():
     account = request.form["account"]  # 要把使用者在前端的資料抓進來後端，這是POST寫法，然後放進變數
     password = request.form["password"]
-    if account == "test" and password == "test":  # 如果說
+
+    if (account == "test") and (password == "test"):  # 如果說帳密都是test就回傳到/member
         return redirect("/member")
+
+    elif (account == "") or (password == ""):
+
+        return redirect("/error")  # 錯的話就導去error
+
     else:
-        # 錯的話就導去error
-        return redirect("/error?message=自訂的錯誤訊息")
+        return redirect("/error")
 
 
 @app.route("/signout")
@@ -41,7 +48,6 @@ def signout():
 
 
 # -----------------------------------------------------
-
 
 @app.route("/square")
 def square():
