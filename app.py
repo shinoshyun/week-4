@@ -31,12 +31,12 @@ def signin():
     account = request.form["account"]  # 要把使用者在前端的資料抓進來後端，這是POST寫法，然後放進變數
     password = request.form["password"]
 
-    if (account == "test") and (password == "test"):  # 如果說帳密都是test就回傳到/member
+    if (account == "test") and (password == "test"):  # 如果說帳密都是test就回傳到(路由/member)
         return redirect("/member")
 
     elif (account == "") or (password == ""):
 
-        return redirect("/error")  # 錯的話就導去error
+        return redirect("/error")  # 錯的話就導去(路由/error)
 
     else:
         return redirect("/error")
