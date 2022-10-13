@@ -23,7 +23,7 @@ def member():
 @app.route("/error")
 def error():
 
-    message = request.args.get("message", "帳號、或密碼輸入錯誤")
+    message = request.args.get("message", "")
     # 這是GET寫法，("message"代表網址後面的接的 EX:/error?message= , 後面的文字為預設文字(也可帶入數字))
     return render_template("error.html", message=message)
     # 後面的message可根據前端的message打了甚麼而做改變
@@ -43,7 +43,7 @@ def signin():
         return redirect("/error?message=請輸入帳號、密碼")
 
     else:
-        return redirect("/error")  # 錯的話就導去(路由/error)
+        return redirect("/error?message=帳號、或密碼輸入錯誤")  # 錯的話就導去(路由/error)
 
 
 @app.route("/signout")
