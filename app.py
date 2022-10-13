@@ -12,7 +12,7 @@ def index():
     return render_template("index.html")
 
 
-@app.route("/member",)
+@app.route("/member")
 def member():
     if "account" and "password" in session:
         return render_template("member.html")
