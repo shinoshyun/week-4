@@ -51,7 +51,7 @@ def signin():
 
 @app.route("/signout")
 def signout():
-    del session["account"]  #
+    del session["account"]  # 登出以後就會完全的刪除資料，利用del把存在session裡的資料刪除
     del session["password"]
     return redirect("/")
 
