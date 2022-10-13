@@ -1,7 +1,4 @@
-from email import message
-import numbers
-from unittest import result
-from flask import Flask, request, render_template, session, redirect
+from flask import Flask, request, render_template, redirect, session
 
 
 app = Flask(__name__, static_folder="static",
@@ -15,9 +12,12 @@ def index():
     return render_template("index.html")
 
 
-@app.route("/member")
+@app.route("/member",)
 def member():
-    return render_template("member.html")
+    if "account" and "password" in session:
+        return render_template("member.html")
+    else:
+        return redirect("/")
 
 
 @app.route("/error")
@@ -33,6 +33,8 @@ def error():
 def signin():
     account = request.form["account"]  # 這是POST寫法，要把使用者在前端的資料抓進來後端，然後放進變數
     password = request.form["password"]
+    session["account"] = account
+    session["password"] = password
 
     if (account == "test") and (password == "test"):  # 如果說帳密都是test就回傳到(路由/member)
         return redirect("/member")
@@ -49,6 +51,8 @@ def signin():
 
 @app.route("/signout")
 def signout():
+    del session["account"]
+    del session["password"]
     return redirect("/")
 
 
