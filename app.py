@@ -14,9 +14,9 @@ def index():
 
 @app.route("/member")
 def member():
-    if "account" and "password" in session:
+    if "account" and "password" in session:  # 如果account、password有在session裡
         return render_template("member.html")
-    else:
+    else:  # 沒有的話就會被導到首頁
         return redirect("/")
 
 
@@ -51,7 +51,7 @@ def signin():
 
 @app.route("/signout")
 def signout():
-    del session["account"]
+    del session["account"]  #
     del session["password"]
     return redirect("/")
 
