@@ -22,7 +22,8 @@ def member():
 
 @app.route("/error")
 def error():
-
+    del session["account"]  # 登出以後就會完全的刪除資料，利用del把存在session裡的資料刪除
+    del session["password"]
     message = request.args.get("message", "")
     # 這是GET寫法，("message"代表網址後面的接的 EX:/error?message= , 後面的文字為預設文字(也可帶入數字))
     return render_template("error.html", message=message)
