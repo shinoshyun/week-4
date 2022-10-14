@@ -22,8 +22,7 @@ def member():
 
 @app.route("/error")
 def error():
-    del session["account"]  # 登出以後就會完全的刪除資料，利用del把存在session裡的資料刪除
-    del session["password"]
+
     message = request.args.get("message", "")
     # 這是GET寫法，("message"代表網址後面的接的 EX:/error?message= , 後面的文字為預設文字(也可帶入數字))
     return render_template("error.html", message=message)
@@ -34,10 +33,10 @@ def error():
 def signin():
     account = request.form["account"]  # 這是POST寫法，要把使用者在前端的資料抓進來後端，然後放進變數
     password = request.form["password"]
-    session["account"] = account
-    session["password"] = password
 
     if (account == "test") and (password == "test"):  # 如果說帳密都是test就回傳到(路由/member)
+        session["account"] = account
+        session["password"] = password
         return redirect("/member")
 
     elif (account == "") or (password == ""):
