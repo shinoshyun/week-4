@@ -34,12 +34,12 @@ def signin():
     password = request.form["password"]
 
     if (account == "test") and (password == "test"):  # 如果說帳密都是test就回傳到(路由/member)
+        # 在這一步才能把資料存到session，如果在if前面就存的話，就會連錯誤的地方都一起影響
         session["account"] = account
         session["password"] = password
         return redirect("/member")
 
     elif (account == "") or (password == ""):
-
         # 任一欄為空 就導去(路由/error)先預設message後面的文字
         return redirect("/error?message=請輸入帳號、密碼")
 
